@@ -291,52 +291,40 @@
                     <div class="col-md-8">
                         <div class="contact-form">
                             <div id="success"></div>
-                            <form novalidate="novalidate">
+                            <form action="{{ route('book') }}" method="POST">
+                                @csrf
                                 <div class="control-group">
-                                    <input type="text" class="form-control" id="name"
+                                    <input type="text" class="form-control" name="name" id="name"
                                         placeholder="Your Name" required="required"
                                         data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
-                                    <input type="tel" class="form-control" id="phone"
+                                    <input type="tel" class="form-control" name="phone_number" id="phone"
                                         placeholder="Phone Number" required="required"
                                         data-validation-required-message="Please enter your phone number" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group select-wrapper">
-                                    <select class="form-control" id="barber" required="required"
+                                    <select class="form-control" name="barber" id="barber" required="required"
                                         data-validation-required-message="Please select a barber">
                                         <option value="" disabled selected>Select a Barber</option>
-                                        <option value="barber1">Adam Phillips</option>
-                                        <option value="barber2">Dylan Adams</option>
-                                        <option value="barber3">Gloria Edwards</option>
-                                        <option value="barber4">Josh Dunn</option>
+                                        @foreach ($barbers as $barber)
+                                            <option value="{{ $barber->id }}">{{ $barber->name }}</option>
+                                        @endforeach
                                     </select>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
-                                    <input type="date" class="form-control" id="appointment-date"
+                                    <input type="date" class="form-control" name="date" id="appointment-date"
                                         required="required" data-validation-required-message="Please select a date" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group select-wrapper">
-                                    <select class="form-control" id="appointment-time" required="required"
+                                    <select class="form-control" name="time" id="appointment-time"
+                                        required="required"
                                         data-validation-required-message="Please select a time slot">
                                         <option value="" disabled selected>Select a Time Slot</option>
-                                        <option value="9:00">09:00</option>
-                                        <option value="10:00">10:00</option>
-                                        <option value="11:00">11:00</option>
-                                        <option value="12:00">12:00</option>
-                                        <option value="13:00">13:00</option>
-                                        <option value="14:00">14:00</option>
-                                        <option value="15:00">15:00</option>
-                                        <option value="16:00">16:00</option>
-                                        <option value="17:00">17:00</option>
-                                        <option value="18:00">18:00</option>
-                                        <option value="19:00">19:00</option>
-                                        <option value="20:00">20:00</option>
-                                        <option value="21:00">21:00</option>
                                     </select>
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -460,6 +448,7 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./app/main_assets/lib/easing/easing.min.js"></script>
     <script src="./app/main_assets/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="./app/main_assets/lib/isotope/isotope.pkgd.min.js"></script>
@@ -467,6 +456,71 @@
 
     <!-- Template Javascript -->
     <script src="./app/main_assets/js/main.js"></script>
+    <script>
+        document.getElementById('appointment-date').addEventListener('change', loadAvailableTimes);
+        document.getElementById('barber').addEventListener('change', loadAvailableTimes);
+
+        function loadAvailableTimes() {
+            const date = document.getElementById('appointment-date').value;
+            const barberId = document.getElementById('barber').value;
+            const today = new Date().toISOString().split('T')[0];
+
+            if (date && barberId) {
+                fetch(`/available-times?date=${date}&barber_id=${barberId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const timeSelect = document.getElementById('appointment-time');
+                        timeSelect.innerHTML = '';
+
+                        const now = new Date();
+                        const currentHour = now.getHours();
+
+                        const filteredTimes = data.filter(time => {
+                            if (date === today) {
+                                const hour = parseInt(time.split(':')[0]);
+                                return hour > currentHour;
+                            }
+                            return true;
+                        });
+
+                        if (filteredTimes.length === 0) {
+                            timeSelect.innerHTML = '<option value="" disabled selected>No Available Times</option>';
+                        } else {
+                            timeSelect.innerHTML = '<option value="" disabled selected>Select a Time Slot</option>';
+                            filteredTimes.forEach(time => {
+                                const option = document.createElement('option');
+                                option.value = time;
+                                option.textContent = time;
+                                timeSelect.appendChild(option);
+                            });
+                        }
+                    });
+            }
+        }
+    </script>
+
+    <!-- Session Window -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    @endif
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: '{{ $errors->first() }}',
+                confirmButtonText: 'Ok'
+            });
+        </script>
+    @endif
 </body>
 
 </html>
