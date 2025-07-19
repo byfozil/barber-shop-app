@@ -104,7 +104,7 @@
             <div class="owl-carousel testimonials-carousel">
                 @foreach ($testimonials as $testimonial)
                     <div class="testimonial-item">
-                        <img src="./app/main_assets/img/testimonial-2.jpg" alt="Image">
+                        <img src="./app/main_assets/img/testimonial.jpg" alt="Image">
                         <p>
                             {{ $testimonial->content }}
                         </p>
@@ -129,7 +129,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="price-item">
                             <div class="price-img">
-                                <img src="./app/main_assets/img/price-11.jpg" alt="Image">
+                                <img src="./app/main_assets/img/price.jpg" alt="Image">
                             </div>
                             <div class="price-text">
                                 <h2>{{ $price->name }}</h2>
@@ -214,7 +214,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="./app/main_assets/img/team-3.jpg" alt="Team Image">
+                                <img src="./app/main_assets/img/team.jpg" alt="Team Image">
                             </div>
                             <div class="team-text">
                                 <h2>{{ $barber->name }}</h2>
