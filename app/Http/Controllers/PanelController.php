@@ -6,6 +6,7 @@ use App\Models\Barber;
 use App\Models\Client;
 use App\Models\Price;
 use App\Models\Testimonial;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,36 +51,44 @@ class PanelController extends Controller
 
     public function barbers(): View
     {
+        $user = Auth::user();
         $barbers = Barber::all();
 
         return view('panel.barbers', [
+            'user' => $user,
             'barbers' => $barbers
         ]);
     }
 
     public function prices(): View
     {
+        $user = Auth::user();
         $prices = Price::all();
 
         return view('panel.prices', [
+            'user' => $user,
             'prices' => $prices
         ]);
     }
 
     public function testimonials(): View
     {
+        $user = Auth::user();
         $testimonials = Testimonial::all();
 
         return view('panel.testimonials', [
+            'user' => $user,
             'testimonials' => $testimonials
         ]);
     }
 
     public function clients(): View
     {
-        $clients = Client::all();
+        $user = Auth::user();
+        $clients = Client::whereDate('booking_date', Carbon::today())->orderBy('booking_time', 'asc')->get();
 
         return view('panel.clients', [
+            'user' => $user,
             'clients' => $clients
         ]);
     }

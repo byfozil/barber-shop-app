@@ -15,6 +15,7 @@ class Client extends Model
         'barber_id',
         'booking_date',
         'booking_time',
+        'status',
     ];
 
     public function barber()

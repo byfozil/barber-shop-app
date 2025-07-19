@@ -23,6 +23,7 @@ class ClientFactory extends Factory
             'barber_id' => Barber::inRandomOrder()->first()->id ?? Barber::factory(),
             'booking_date' => fake()->date(),
             'booking_time' => fake()->time('H:i'),
+            'status' => 'pending',
         ];
     }
 }

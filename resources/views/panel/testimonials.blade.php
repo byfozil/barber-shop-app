@@ -32,7 +32,7 @@
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
-                <li class="nav-item menu-items active">
+                <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('prices') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-cash-multiple"></i>
@@ -41,7 +41,7 @@
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="nav-item menu-items active">
                     <a class="nav-link" href="{{ route('testimonials') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-comment-multiple-outline"></i>
@@ -116,7 +116,7 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title">Prices</h3>
+                        <h3 class="page-title">Testimonials</h3>
                         <nav aria-label="breadcrumb">
                             <button type="button" class="btn btn-inverse-success btn-fw">Add</button>
                         </nav>
@@ -125,23 +125,23 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Prices</h4>
+                                    <h4 class="card-title">Testimonials</h4>
                                     <p class="card-description"></p>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
+                                                    <th>Author</th>
+                                                    <th>Content</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($prices as $price)
+                                                @foreach ($testimonials as $testimonial)
                                                     <tr>
-                                                        <td>{{ $price->name }}</td>
-                                                        <td>${{ $price->price }}</td>
+                                                        <td>{{ $testimonial->author }}</td>
+                                                        <td class="content-cell">{{ $testimonial->content }}</td>
                                                         <td><button type="button" class="btn btn-inverse-warning btn-fw">Edit</button></td>
                                                         <td><button type="button" class="btn btn-inverse-danger btn-fw">Delete</button></td>
                                                     </tr>

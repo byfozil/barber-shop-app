@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('barber_id')->references('id')->on('barbers')->onDelete('cascade');
             $table->date('booking_date');
             $table->time('booking_time');
+            $table->string('status');
             $table->timestamps();
         });
     }

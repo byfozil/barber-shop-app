@@ -6,9 +6,6 @@
     <title>Barber Shop - Fozilbek Yuldoshev</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Favicon -->
-    <link href="./app/main_assets/img/favicon.ico" rel="icon">
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">

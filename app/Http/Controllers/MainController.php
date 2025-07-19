@@ -51,6 +51,7 @@ class MainController extends Controller
             'barber_id' => $validated['barber'],
             'booking_date' => $validated['date'],
             'booking_time' => $validated['time'],
+            'status' => 'pending',
         ]);
 
         return redirect()->back()->with('success', 'Booking successful!');

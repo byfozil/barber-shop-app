@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../app/admin_assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../app/admin_assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../app/admin_assets/css/style.css">
-    <link rel="shortcut icon" href="../app/admin_assets/images/favicon.png" />
 </head>
 
 <body>
