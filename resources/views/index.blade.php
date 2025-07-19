@@ -44,7 +44,7 @@
                     </p>
                     <div class="btn-group">
                         <a class="btn" href="#contact">Book now</a>
-                        <a class="btn right" href="#">Admin panel</a>
+                        <a class="btn right" href="{{ route('panel') }}">Admin panel</a>
                     </div>
                 </div>
             </div>
