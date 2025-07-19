@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Barber;
 use App\Models\Client;
+use App\Models\Price;
+use App\Models\Testimonial;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,9 +16,13 @@ class MainController extends Controller
     public function index(): View
     {
         $barbers = Barber::all();
+        $testimonials = Testimonial::all();
+        $prices = Price::all();
 
         return view('index', [
-            'barbers' => $barbers
+            'barbers' => $barbers,
+            'testimonials' => $testimonials,
+            'prices' => $prices
         ]);
     }
 

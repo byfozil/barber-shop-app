@@ -102,35 +102,16 @@
     <div class="testimonial">
         <div class="container">
             <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <img src="./app/main_assets/img/testimonial-1.jpg" alt="Image">
-                    <p>
-                        This barbershop is a hidden gem in City! The barbers are incredibly skilled and friendly. I
-                        always walk out feeling fresh and confident. Highly recommend for anyone who wants quality
-                        grooming.
-                    </p>
-                    <h2>Alex</h2>
-                    <h3>Client</h3>
-                </div>
-                <div class="testimonial-item">
-                    <img src="./app/main_assets/img/testimonial-2.jpg" alt="Image">
-                    <p>
-                        I've tried many places before, but none compare to the atmosphere and precision here. The
-                        attention to detail is amazing, and the team really listens to what you want. I'll definitely be
-                        coming back!
-                    </p>
-                    <h2>Alex</h2>
-                    <h3>Client</h3>
-                </div>
-                <div class="testimonial-item">
-                    <img src="./app/main_assets/img/testimonial-3.jpg" alt="Image">
-                    <p>
-                        Professional service, clean space, and great vibes. I love how they combine traditional
-                        techniques with modern style. It's not just a haircut — it's a whole experience.
-                    </p>
-                    <h2>Alex</h2>
-                    <h3>Client</h3>
-                </div>
+                @foreach ($testimonials as $testimonial)
+                    <div class="testimonial-item">
+                        <img src="./app/main_assets/img/testimonial-2.jpg" alt="Image">
+                        <p>
+                            {{ $testimonial->content }}
+                        </p>
+                        <h2>{{ $testimonial->author }}</h2>
+                        <h3>Client</h3>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -144,138 +125,19 @@
                 <h2>Prices</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-1.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Hair Cut</h2>
-                            <h3>$9.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-2.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Hair Wash</h2>
-                            <h3>$10.99</h3>
+                @foreach ($prices as $price)
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="price-item">
+                            <div class="price-img">
+                                <img src="./app/main_assets/img/price-11.jpg" alt="Image">
+                            </div>
+                            <div class="price-text">
+                                <h2>{{ $price->name }}</h2>
+                                <h3>{{ $price->price }}</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-3.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Hair Color</h2>
-                            <h3>$11.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-4.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Hair Shave</h2>
-                            <h3>$12.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-5.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Hair Straight</h2>
-                            <h3>$13.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-6.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Facial</h2>
-                            <h3>$14.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-7.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Shampoo</h2>
-                            <h3>$15.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-8.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Beard Trim</h2>
-                            <h3>$16.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-9.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Beard Shave</h2>
-                            <h3>$17.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-10.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Wedding Cut</h2>
-                            <h3>$18.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-11.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Clean Up</h2>
-                            <h3>$19.99</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="price-item">
-                        <div class="price-img">
-                            <img src="./app/main_assets/img/price-12.jpg" alt="Image">
-                        </div>
-                        <div class="price-text">
-                            <h2>Massage</h2>
-                            <h3>$20.99</h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -348,50 +210,18 @@
                 <h2>Expert Barbers</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="./app/main_assets/img/team-1.jpg" alt="Team Image">
-                        </div>
-                        <div class="team-text">
-                            <h2>Adam Phillips</h2>
-                            <p>Master Barber</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="./app/main_assets/img/team-2.jpg" alt="Team Image">
-                        </div>
-                        <div class="team-text">
-                            <h2>Dylan Adams</h2>
-                            <p>Hair Expert</p>
+                @foreach ($barbers as $barber)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="./app/main_assets/img/team-3.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>{{ $barber->name }}</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="./app/main_assets/img/team-3.jpg" alt="Team Image">
-                        </div>
-                        <div class="team-text">
-                            <h2>Gloria Edwards</h2>
-                            <p>Beard Expert</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="./app/main_assets/img/team-4.jpg" alt="Team Image">
-                        </div>
-                        <div class="team-text">
-                            <h2>Josh Dunn</h2>
-                            <p>Color Expert</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
