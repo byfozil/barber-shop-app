@@ -40,19 +40,32 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 4. Creating Laravel keys
+### 4. Install Composer
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+```
+
+### 5. Install Libraries
+
+```bash
+php composer.phar install
+```
+
+### 6. Creating Laravel keys
 
 ```bash
 php artisan key:generate
 ```
 
-### 5. Database migration
+### 7. Database migration
 
 ```bash
 php artisan migrate
 ```
 
-### 6. Starting the server
+### 8. Starting the server
 
 ```bash
 php artisan serve

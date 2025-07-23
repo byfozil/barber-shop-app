@@ -24,7 +24,7 @@
                     <span class="nav-link">Pages</span>
                 </li>
                 <li class="nav-item menu-items active">
-                    <a class="nav-link" href="{{ route('barbers') }}">
+                    <a class="nav-link" href="./barbers">
                         <span class="menu-icon">
                             <i class="mdi mdi-scissors-cutting"></i>
                         </span>
@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('prices') }}">
+                    <a class="nav-link" href="./prices">
                         <span class="menu-icon">
                             <i class="mdi mdi-cash-multiple"></i>
                         </span>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('testimonials') }}">
+                    <a class="nav-link" href="./testimonials">
                         <span class="menu-icon">
                             <i class="mdi mdi-comment-multiple-outline"></i>
                         </span>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('clients') }}">
+                    <a class="nav-link" href="./clients">
                         <span class="menu-icon">
                             <i class="mdi mdi-account-group-outline"></i>
                         </span>
