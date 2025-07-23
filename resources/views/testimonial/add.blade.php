@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin panel - Barbers</title>
-    <link rel="stylesheet" href="../app/admin_assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../app/admin_assets/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="../app/admin_assets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="../app/admin_assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../app/admin_assets/css/style.css">
+    <link rel="stylesheet" href="../../app/admin_assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../app/admin_assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../app/admin_assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../app/admin_assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../app/admin_assets/css/style.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
-                <li class="nav-item menu-items active">
+                <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('prices') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-cash-multiple"></i>
@@ -41,7 +41,7 @@
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
+                <li class="nav-item menu-items active">
                     <a class="nav-link" href="{{ route('testimonials') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-comment-multiple-outline"></i>
@@ -84,7 +84,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                                 <div class="navbar-profile">
-                                    <img class="img-xs rounded-circle" src="../app/admin_assets/images/person.jpg"
+                                    <img class="img-xs rounded-circle" src="../../app/admin_assets/images/person.jpg"
                                         alt="">
                                     <p class="mb-0 d-sm-block navbar-profile-name">{{ $user->username }}</p>
                                     <i class="mdi mdi-menu-down d-sm-block"></i>
@@ -116,45 +116,34 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title">Prices</h3>
-                        <nav aria-label="breadcrumb">
-                            <a href="./prices/add" class="btn btn-inverse-success btn-fw">Add</a>
-                        </nav>
+                        <h3 class="page-title">Testimonials</h3>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Prices</h4>
-                                    <p class="card-description"></p>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Edit</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($prices as $price)
-                                                    <tr>
-                                                        <td>{{ $price->name }}</td>
-                                                        <td>${{ $price->price }}</td>
-                                                        <td>
-                                                            <a href="./prices/edit/{{ $price->id }}"
-                                                                class="btn btn-inverse-warning btn-fw">Edit</a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="./prices/delete/{{ $price->id }}"
-                                                                class="btn btn-inverse-danger btn-fw">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <h4 class="card-title">Add Testimonial</h4>
+                                    <form class="forms-sample" action="{{ route('testimonial_add_post') }}"
+                                        method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="author">Author</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                placeholder="Author" value="{{ old('author') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="content">Content</label>
+                                            <textarea class="form-control" id="content" name="content" placeholder="Content" value="{{ old('content') }}"
+                                                rows="4"></textarea>
+                                        </div>
+                                        @if ($errors->any())
+                                            <div class="form-group">
+                                                <p class="text-danger">{{ $errors->first() }}</p>
+                                            </div>
+                                        @endif
+                                        <button type="submit" class="btn btn-primary me-2">Add Testimonial</button>
+                                        <a href="../testimonials" class="btn btn-dark">Cancel</a>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -169,11 +158,11 @@
             </div>
         </div>
     </div>
-    <script src="../app/admin_assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="../app/admin_assets/js/off-canvas.js"></script>
-    <script src="../app/admin_assets/js/misc.js"></script>
-    <script src="../app/admin_assets/js/settings.js"></script>
-    <script src="../app/admin_assets/js/todolist.js"></script>
+    <script src="../../app/admin_assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../app/admin_assets/js/off-canvas.js"></script>
+    <script src="../../app/admin_assets/js/misc.js"></script>
+    <script src="../../app/admin_assets/js/settings.js"></script>
+    <script src="../../app/admin_assets/js/todolist.js"></script>
 </body>
 
 </html>

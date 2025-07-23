@@ -151,7 +151,11 @@
                                                         @else
                                                             <td><label class="badge badge-danger">Pending</label></td>
                                                         @endif
-                                                        <td><button type="button" class="btn btn-inverse-warning btn-fw">Change Status</button></td>
+                                                        <td>
+                                                            <a href="./clients/status/{{ $client->id }}"
+                                                                class="btn btn-inverse-warning btn-fw">Change
+                                                                Status</a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

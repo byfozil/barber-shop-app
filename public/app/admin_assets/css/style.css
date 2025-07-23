@@ -25608,7 +25608,7 @@ code {
 }
 
 .form-group {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-group-append,
@@ -25684,7 +25684,7 @@ code {
 }
 
 .form-select {
-  color: #4b5564 !important;
+  color: #fff !important;
 }
 
 .navbar .form-control,

@@ -118,7 +118,7 @@
                     <div class="page-header">
                         <h3 class="page-title">Testimonials</h3>
                         <nav aria-label="breadcrumb">
-                            <button type="button" class="btn btn-inverse-success btn-fw">Add</button>
+                            <a href="./testimonials/add" class="btn btn-inverse-success btn-fw">Add</a>
                         </nav>
                     </div>
                     <div class="row">
@@ -142,8 +142,14 @@
                                                     <tr>
                                                         <td>{{ $testimonial->author }}</td>
                                                         <td class="content-cell">{{ $testimonial->content }}</td>
-                                                        <td><button type="button" class="btn btn-inverse-warning btn-fw">Edit</button></td>
-                                                        <td><button type="button" class="btn btn-inverse-danger btn-fw">Delete</button></td>
+                                                        <td>
+                                                            <a href="./testimonials/edit/{{ $testimonial->id }}"
+                                                                class="btn btn-inverse-warning btn-fw">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="./testimonials/delete/{{ $testimonial->id }}"
+                                                                class="btn btn-inverse-danger btn-fw">Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

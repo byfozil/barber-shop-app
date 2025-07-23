@@ -118,7 +118,7 @@
                     <div class="page-header">
                         <h3 class="page-title">Barbers</h3>
                         <nav aria-label="breadcrumb">
-                            <button type="button" class="btn btn-inverse-success btn-fw">Add</button>
+                            <a href="./barbers/add" class="btn btn-inverse-success btn-fw">Add</a>
                         </nav>
                     </div>
                     <div class="row">
@@ -140,11 +140,13 @@
                                                 @foreach ($barbers as $barber)
                                                     <tr>
                                                         <td>{{ $barber->name }}</td>
-                                                        <td><button type="button"
-                                                                class="btn btn-inverse-warning btn-fw">Edit</button>
+                                                        <td>
+                                                            <a href="./barbers/edit/{{ $barber->id }}"
+                                                                class="btn btn-inverse-warning btn-fw">Edit</a>
                                                         </td>
-                                                        <td><button type="button"
-                                                                class="btn btn-inverse-danger btn-fw">Delete</button>
+                                                        <td>
+                                                            <a href="./barbers/delete/{{ $barber->id }}"
+                                                                class="btn btn-inverse-danger btn-fw">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
