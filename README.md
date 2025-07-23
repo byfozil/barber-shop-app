@@ -40,7 +40,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 4. Install Composer
+### 4. Install Composer if it's not on your Computer
 
 ```bash
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -59,10 +59,10 @@ php composer.phar install
 php artisan key:generate
 ```
 
-### 7. Database migration
+### 7. Database migration with seeder
 
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 ### 8. Starting the server

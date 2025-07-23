@@ -36,8 +36,8 @@
                 <div class="hero-text">
                     <h1>Website for Barber Shop</h1>
                     <p>
-                        Customers can book barber services at their convenience using this website. Barbers manage
-                        their prices and clients through the Admin panel.
+                        Customers can book barber services at their convenience using this website. Manage barbers,
+                        prices, testimonials, clients through the Admin panel.
                     </p>
                     <div class="btn-group">
                         <a class="btn" href="#contact">Book now</a>
