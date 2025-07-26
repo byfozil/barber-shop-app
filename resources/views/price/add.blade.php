@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin panel - Barbers</title>
+    <title>Admin panel - Prices</title>
     <link rel="stylesheet" href="../../app/admin_assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../app/admin_assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="../../app/admin_assets/vendors/css/vendor.bundle.base.css">
